@@ -1,0 +1,114 @@
+<div id="main-content" class="page-mailbox" >
+    <div class="row" data-equal-height="true"  style="overflow-y: scroll;">
+        <div class="col-md-4 list-messages">
+            <div class="panel panel-default">
+                <div class="panel-body messages">
+                    <div class="input-group input-group-lg border-bottom">
+                        <span class="input-group-btn">
+                            <a href="" class="btn"><i class="fa fa-search"></i></a>
+                        </span>
+                        <input type="text" class="form-control bd-0 bd-white" placeholder="Search">
+                    </div>
+                    <div id="messages-list" class="panel panel-default" data-height="window" data-padding="90" style="height:580px;overflow-y:scroll;overflow-h:hidden">
+                        <div class="message-item media" ng-repeat="data in allModuleData" id="message-{{data._id}}">
+                            <div class="pull-left text-center">
+                                <paper-checkbox></paper-checkbox>
+                            </div>
+                            <div class="message-item-right" style="cursor:pointer;" ng-click="edit(data._id)">
+                                <div class="media">
+                                    <avatar module="{{session.menu.modules[0].description}}" photo="{{data._id}}" width="50" class="pull-left"></avatar>
+                                    <div class="media-body">
+                                        <small class="pull-right" ><avatar module="company" photo="{{session.company._id}}" scale="24px" class=""></avatar></small>
+                                        <h4 class="c-dark"><strong ng-bind="data.attributes.{{session.menu.modules[0].description}}_data.name"></strong></h4>
+                                        <h5 class="c-dark" ng-bind="data.attributes.{{session.menu.modules[0].description}}_data.birth_date"></h5>
+                                        <h5 class="c-dark">Atacante</h5>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8 col-md-8 email-hidden-sm detail-message"  ng-if="moduleData">
+            <div id="message-detail" class="panel panel-default" data-height="window" data-padding="40">
+
+                <div class="col-md-10 m-t-20" style="margin-bottom: 10px;">
+                    <div class="pull-left">
+                        <div class="media-body" style="float:left;">
+                            <avatar module="{{session.menu.modules[0].description}}" photo="{{moduleData._id}}" width="50" class="pull-left"></avatar>
+                        </div>
+                        <div class="media-body" style="float:left;margin-left:10px;">
+                            <h4 class="c-dark"><strong id="label.person_data.city">{{moduleData.attributes.person_data.name}}</strong></h4>
+                        </div>
+
+                    </div>
+                    <div class="pull-right">
+                        <paper-fab icon="arrow-back" class="black" role="button" tabindex="0" aria-label="done" ng-click="prev()"></paper-fab>
+                        <paper-fab icon="arrow-forward" class="black" role="button" tabindex="0" aria-label="done" ng-click="next()"></paper-fab>
+                        <paper-fab icon="close" role="button" tabindex="0" aria-label="arrow-forward" ng-click="cancel()"></paper-fab>
+
+                        <paper-fab icon="done" class="green" role="button" tabindex="0" aria-label="done" ng-click="save()"></paper-fab>
+                    </div>
+                </div>
+
+                <div class="panel-body messages message-result">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="tabbable tabbable-custom form" style="">
+                                <ul class="nav nav-tabs">
+                                    <li class="tab-index" ng-class="{'active':$index==0}" ng-repeat="(description,attributeGroup) in attributes">
+                                        <a href="#{{description}}" data-toggle="tab" translate="{{session.menu.modules[0].description}}.{{description}}">{{description}}</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content message-body"  style="float:left;height:500px;width:100%;overflow-y:scroll;">
+                                    <div class="tab-pane" ng-class="{'active': $index==0}" ng-repeat="(description,attributeGroup) in attributes" id="{{description}}" >
+                                        <div class="row profile-classic">
+                                            <div class="col-md-12 m-t-20">
+                                                <div class="panel">
+                                                    <div class="panel-body">
+                                                        <div class="row" ng-repeat="attribute in attributeGroup">
+                                                            <attribute data="attribute" dataset="moduleData"></attribute>
+                                                        </div>
+                                                        <div class="row">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 email-hidden-sm detail-message"  ng-if="!moduleData && !moduleLoading">
+            <div class="panel panel-default" data-height="window" style="height: 705px;vertical-align: middle">
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row text-center" style="margin-top: 150px;">
+                        <div>
+                            <paper-fab icon="arrow-back" class="yellow" role="button" tabindex="0" aria-label="reply"></paper-fab>
+                            <h3 class="c-dark"><strong>Selecione um Atleta</strong></h3>
+                        </div>
+                        <div style="margin-top: 100px;">
+                            <paper-fab icon="add" class="green" role="button" tabindex="0" aria-label="done" ng-click="create()"></paper-fab>
+                            <h3 class="c-dark"><strong>Cadastre um Atleta</strong></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8 col-md-8 email-hidden-sm detail-message"  ng-show="!moduleData && moduleLoading">
+            <div class="panel panel-default" data-height="window" style="height: 705px;vertical-align: middle" ng-include src="'views/loading.html'">
+
+            </div>
+        </div>
+    </div>
+</div>

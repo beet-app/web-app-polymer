@@ -1,0 +1,71 @@
+<div style="float:left;width:100%;display:none;">
+    <div style="float:left;cursor:pointer;" ng-repeat="data in allModuleData" ng-click='edit(data._id)'>
+        <img src="images/uploads/{{session.menu.modules[0].description}}/{{data._id}}.png" title="" class="" style="width:40%;height:40%">
+    </div>   
+</div>
+
+<form class="form-horizontal" role="form">          
+    <!-- BEGIN TABS -->
+    <div class="tabbable tabbable-custom form">
+        <ul class="nav nav-tabs">
+            <li class="tab-index" ng-repeat="(description,attributeGroup) in attributes">
+                <a href="#{{description}}" data-toggle="tab" translate="{{session.menu.modules[0].description}}.{{description}}">{{description}}</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="space20"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="list-unstyled profile-nav col-md-3">
+                        <li>
+                            <avatar module="{{session.menu.modules[0].description}}" photo="{{moduleData._id}}" scale="auto" class="pull-left img-responsive">
+                                    </avatar>   
+                        </li>
+                    </ul>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-12 profile-info">
+                                <h1 id="lblName"></h1>
+                                <div class="m-t-10"></div>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="m-r-20"><i class="fa fa-map-marker p-r-5 c-dark"></i> <label id="lblCity"></label></li>
+                                    <li class="m-r-20"><i class="fa fa-calendar p-r-5 c-purple"></i> <label id="lblBirthDate"></label></li>
+                                </ul>
+                                <div class="m-t-20"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" ng-repeat="(description,attributeGroup) in attributes" id="{{description}}" >
+                <div class="row profile">
+                    <div class="col-md-12">                        
+                        <div class="row profile-classic">
+                            <div class="col-md-12 m-t-20">
+                                <div class="panel">                           
+                                    <div class="panel-body">
+                                        <div class="row" ng-repeat="attribute in attributeGroup">
+                                            <attribute data="attribute" dataset="moduleData"></attribute>
+                                        </div>                                               
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="align-center">
+                        <button class="btn btn-primary m-r-20" type="submit" ng-click="save()" translate="global.buttons.save">Save</button>
+                        <button type="reset" class="btn btn-default" translate="global.buttons.cancel">Cancel</button>
+                    </div>
+                </div>  
+            </div>  
+
+        </div>
+
+    </div>
+    <!--END TABS-->
+      
+</form>

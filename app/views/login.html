@@ -1,0 +1,22 @@
+<form style="display:none;">
+    <div class="form-group">
+        <label></label>
+        <input type="text" placeholder="Email" ng-model="formData.email">
+    </div>
+    <div class="form-group">
+        <label></label>
+        <input type="password" placeholder="Password" ng-model="formData.password">
+    </div>
+
+    <button type="submit" class="btn btn-login"  ng-click="checkLogin()">Login</button>
+</form>
+
+<div id="login-box">
+    <paper-input floatinglabel label="Usuário" id="login" class="login-field-user"></paper-input>
+
+    <paper-input floatinglabel label="Senha" id="login" class="login-field-password"></paper-input>
+
+    <paper-button class="submit" ng-click="checkLogin()" label="Login"></paper-button>
+
+    <paper-shadow z="2"></paper-shadow>
+</div>

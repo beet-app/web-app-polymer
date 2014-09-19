@@ -1,0 +1,6 @@
+<core-toolbar class="color-bg-1">
+    <img src="images/logo_toolbar.png" class="m-center" />
+</core-toolbar>
+<core-menu>
+    <core-item ng-repeat="menu in session.menus" ng-click="changePage(menu)" icon="{{menu.icon_class}}" label="{{menu.description}}" ui-sref="main" ui-sref-active="core-selected"></core-item>
+</core-menu>
