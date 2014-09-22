@@ -1,26 +1,31 @@
 ﻿"use strict";
+BeetApp.factory('errorInterceptor', ['$q', '$rootScope', '$location',
+    function ($q, $rootScope, $location) {
+        return {
+            request: function (config) {
+                return config || $q.when(config);
+            },
+            requestError: function(request){
+                return $q.reject(request);
+            },
+            response: function (response) {
+                return response || $q.when(response);
+            },
+            responseError: function (response) {
+                if (response && response.status === 401) {
+                    $location.url('/login');
+                }
+                if (response && response.status >= 500) {
+                    alert("error 500");
+                }
+                return $q.reject(response);
+            }
+        };
+    }]);
 BeetApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
     $httpProvider.defaults.withCredentials = true;
     //$locationProvider.html5Mode(true);
-
-    $httpProvider.responseInterceptors.push(function($q, $location) {
-
-        return function(promise) {
-            return promise.then(
-                // Success: just return the response
-                function(response){
-                    return response;
-                },
-                // Error: check the error status to get only the 401
-                function(response) {
-                    if (response.status === 401){
-                        $location.url('/login');
-                    }
-                    return $q.reject(response);
-                }
-            );
-        }
-    });
+    $httpProvider.interceptors.push('errorInterceptor');
 
     $urlRouterProvider.otherwise('/login');
 

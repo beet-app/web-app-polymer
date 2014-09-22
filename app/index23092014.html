@@ -17,23 +17,22 @@
 
     <!-- build:css styles/vendor.css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-    <!-- endbuild -->
+    <!-- bower:css -->
 
     <!-- build:css({.tmp,app}) styles/application.css -->
-    <link rel="stylesheet" href="styles/polymer2.css" media="all" type="text/css" >
-    <link rel="stylesheet" href="styles/style2.css" media="all" type="text/css" >
-    <link rel="stylesheet" href="styles/colors2.css" media="all" type="text/css" >
-    <link rel="stylesheet" href="styles/components/datepicker/datepicker2.css">
+    <link rel="stylesheet" href="styles/polymer.css" media="all" type="text/css" >
+    <link rel="stylesheet" href="styles/style.css" media="all" type="text/css" >
+    <link rel="stylesheet" href="styles/colors.css" media="all" type="text/css" >
+    <link rel="stylesheet" href="styles/components/datepicker/datepicker.css">
     <!-- endbuild -->
 </head>
 
-<body ng-app="BeetApp" layout="horizontal">
+<body ng-app="BeetApp">
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<!--
 <core-scaffold id="container" style="display:none;">
 
     <core-header-panel ng-include src="'views/menu.html'" navigation flex mode="seamed"></core-header-panel>
@@ -41,7 +40,9 @@
     <div ng-include src="'views/header.html'" tool ng-controller="HeaderCtrl"  id="header">
     </div>
 
-
+    <div id="content" ui-view="">
+        <!-- PAGE CONTENT -->
+    </div>
 
     <div id="loadingContent" ng-include src="'views/loading-content.html'">
 
@@ -52,16 +53,10 @@
 
 <div class="overlay-transparent" style="display:none;"></div>
 
-
+<div id="loadingApp" ng-include src="'views/loading-app.html'"></div>
 
 <div id="login" ng-include src="'views/login.html'" ng-if="login" ng-controller="LoginController" style="display:none;"></div>
--->
-<div id="content" ui-view="">
 
-</div>
-<div id="loadingApp" ng-include src="'views/loading-app.html'" flex layout="horizontal" layout-align="center center"></div>
-<div id="login" ng-include src="'views/login.html'" flex layout="horizontal" layout-align="center center" ng-if="login" ng-controller="LoginController" style="display:none;"></div>
--->
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -122,6 +117,22 @@
 <script src="scripts/directives/avatar.js"></script>
 <script src="scripts/directives/attribute.js"></script>
 <!-- endbuild -->
+
+
+
+<paper-dialog opened="{{dialogCompany}}" id="dialog-companies" heading="{{'global.choose_company' | translate}}" transition="paper-dialog-transition-bottom" layered="true" backdrop="true" autoCloseDisabled="true">
+    <div style="padding:20px;" ng-repeat="company in session.companies">
+        <div ng-click='changeCompany($index)' style='cursor:pointer;'>
+            <avatar module="company" photo="{{company._id}}" scale="32px" class=""></avatar>
+            &nbsp;&nbsp;
+            <strong>{{company.attributes.company_data.name}}</strong>
+        </div>
+    </div>
+    <button class="btn btn-default btn-modal-close" id="modal-companies-close" style='display:none;'>Ok</button>
+    <paper-button label="Fechar" raisedbutton="" role="button" tabindex="0" aria-label="colored" ng-click="toggleDialog();" style="background: #375B5F;color: #fff;position:absolute;right:5%;bottom:5%;"></paper-button>
+</paper-dialog>
+
+
 
 
 

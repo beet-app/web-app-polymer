@@ -11,12 +11,10 @@
     <button type="submit" class="btn btn-login"  ng-click="checkLogin()">Login</button>
 </form>
 
-<div id="login-box">
-    <paper-input floatinglabel label="Usuário" id="login" class="login-field-user"></paper-input>
 
-    <paper-input floatinglabel label="Senha" id="login" class="login-field-password"></paper-input>
-
-    <paper-button class="submit" ng-click="checkLogin()" label="Login"></paper-button>
-
-    <paper-shadow z="2"></paper-shadow>
+<div layout="vertical" flex="50" layout-align="center center" class="material-whiteframe-z2">
+    <material-input-group>
+        <material-input type="text" class="material-input-group-theme-green"></material-input>
+        <material-input type="text" class="material-input-group-theme-green" floatinglabel></material-input>
+    </material-input-group>
 </div>

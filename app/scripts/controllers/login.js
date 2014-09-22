@@ -8,7 +8,6 @@ BeetApp
                 loadData(data);
             })
             .error(function (error) {
-
                 $rootScope.loadingApp = false;
                 $rootScope.login = true;
 
