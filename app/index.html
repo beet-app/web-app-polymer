@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-language" content="pt-br" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="description" content="Gerenciamento de atletas" />
     <meta name="author" content="BeetCorp" />
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
@@ -60,8 +61,8 @@
 
 </div>
 <div id="loadingApp" ng-include src="'views/loading-app.html'" flex layout="horizontal" layout-align="center center"></div>
-<div id="login" ng-include src="'views/login.html'" flex layout="horizontal" layout-align="center center" ng-if="login" ng-controller="LoginController" style="display:none;"></div>
--->
+<div id="login" ng-include src="'views/login.html'" flex layout="horizontal" layout-align="center center" ng-if="login" ng-controller="LoginController" style="display:none;background-image: url(images/background.gif)"></div>
+
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>

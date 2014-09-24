@@ -13,7 +13,7 @@ BeetApp
 
                 setTimeout(function(){
                     $("#loadingApp").hide();
-                    $("#login").fadeIn("fast");
+                    $("#login").fadeIn("slow");
                 },2000);
 
             });

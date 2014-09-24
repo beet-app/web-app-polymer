@@ -12,9 +12,18 @@
 </form>
 
 
-<div layout="vertical" flex="50" layout-align="center center" class="material-whiteframe-z2">
-    <material-input-group>
-        <material-input type="text" class="material-input-group-theme-green"></material-input>
-        <material-input type="text" class="material-input-group-theme-green" floatinglabel></material-input>
+<div layout="vertical" flex-lg="40" flex-md="60" flex-sm="90" layout-align="center center" class="material-whiteframe-z2" layout-padding style="background-color:#fff;-webkit-border-radius: 20px;">
+    <img src="images/loading.png" style="width:50%"/>
+    <material-input-group  class="material-input-group-theme-purple" layout="vertical" style="width:80%;font-size:28px;">
+        <label for="formData.email">Login</label>
+        <material-input id="formData.email" type="text" ng-model="formData.email"l/>
     </material-input-group>
+    <material-input-group  class="material-input-group-theme-purple" layout="vertical" style="width:80%;font-size:28px;">
+        <label for="formData.password">Senha</label>
+        <material-input id="formData.password" type="password" ng-model="formData.password" />
+    </material-input-group>
+    <material-button class="material-button-raised material-button-colored" tabindex="-1" offset="50" aria-label="Entrar" style="width:30%;font-size:1.5em;background-color: #781649;">
+        <button class="material-button-inner">Entrar</button>
+        <div class="material-ripple-container"></div>
+    </material-button>
 </div>
