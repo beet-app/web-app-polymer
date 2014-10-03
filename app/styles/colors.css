@@ -1,17 +1,22 @@
+.c-4{
+    background-color:#781649 !important;
+    color:#FFFFFF !important;
+}
+
 .color-bg-1{
-    background-color:#FFFFFF;
+    background-color:#FFFFFF !important;
 }
 .color-bg-2{
-    background-color:#A7CA84;
+    background-color:#A7CA84 !important;
 }
 .color-bg-3{
-    background-color:#78AE40;
+    background-color:#78AE40 !important;
 }
 .color-bg-4{
-    background-color:#375B5F;
+    background-color:#781649 !important;
 }
 .color-bg-5{
-    background-color:#000000;
+    background-color:#000000 !important;
 }
 
 .color-1{
@@ -28,6 +33,43 @@
 }
 .color-5{
     color:#000000;
+}
+
+.bg-green-dark{
+    background:#1DE9B6;
+}
+.bg-green-light{
+    background:#B9F6CA;
+}
+.bg-red-dark{
+    background:#FF5252;
+}
+.bg-red-light{
+    background:#FF8A80;
+}
+.bg-blue-dark{
+    background:#03A9F4;
+}
+.bg-blue-light{
+    background:#84FFFF;
+}
+.bg-yellow-dark{
+    background:#FFEB3B;
+}
+.bg-yellow-light{
+    background:#FFFF8D;
+}
+.bg-purple-dark{
+    background:#7E57C2;
+}
+.bg-purple-light{
+    background:#B388FF;
+}
+.bg-grey-dark{
+    background:#999999;
+}
+.bg-grey-light{
+    background:#F5F5F5;
 }
 
 .color-color-1{

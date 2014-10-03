@@ -1,5 +1,17 @@
-<div style="float:left;width:100%;">
-    <div style="float:right;cursor:pointer;color:#000;margin-right: 2%;">
-        <core-item icon="exit-to-app" label="Logout" ng-click="logout()"></core-item>
+<div layout="horizontal" flex>
+    <div class="col-xs-2 col-lg-1" layout="vertical" layout-align="center start">
+        <img src="images/header-logo.png" class="img-responsive m-v-10"/>
+    </div>
+    <div class="col-xs-8 col-lg-10 s-150" layout="vertical" layout-align="center center" >
+        <label class="m-20">Menu Principal</label>
+    </div>
+    <div class="col-xs-2 col-lg-1" layout="vertical" layout-align="center end">
+
+        <material-button class="material-button-fab color-bg-4 m-v-10" tabindex="-1" aria-label="">
+            <button class="material-button-inner">
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </button>
+            <div class="material-ripple-container" ></div>
+        </material-button>
     </div>
 </div>

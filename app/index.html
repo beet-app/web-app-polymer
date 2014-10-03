@@ -15,114 +15,291 @@
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato&#038;ver=3.9.1' type='text/css' media='all' />
 
-
     <!-- build:css styles/vendor.css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) styles/application.css -->
-    <link rel="stylesheet" href="styles/polymer2.css" media="all" type="text/css" >
-    <link rel="stylesheet" href="styles/style2.css" media="all" type="text/css" >
-    <link rel="stylesheet" href="styles/colors2.css" media="all" type="text/css" >
+    <link rel="stylesheet" href="styles/polymer.css" media="all" type="text/css" >
+    <link rel="stylesheet" href="styles/style.css" media="all" type="text/css" >
+    <link rel="stylesheet" href="styles/colors.css" media="all" type="text/css" >
     <link rel="stylesheet" href="styles/components/datepicker/datepicker2.css">
     <!-- endbuild -->
 </head>
 
-<body ng-app="BeetApp" layout="horizontal">
+<body ng-app="BeetApp" layout="vertical" layout-fill>
 
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
 
-<!--
-<core-scaffold id="container" style="display:none;">
+    <header ng-include src="'views/header.html'" id="header" class="c-4" ng-controller="HeaderController" style="display:none;">
 
-    <core-header-panel ng-include src="'views/menu.html'" navigation flex mode="seamed"></core-header-panel>
+    </header>
 
-    <div ng-include src="'views/header.html'" tool ng-controller="HeaderCtrl"  id="header">
+
+    <div id="container"  style="display:none;" layout="horizontal" flex>
+
+        <material-sidenav ng-include src="'views/menu.html'" class="color-bg-1 material-whiteframe-z3 visible-lg col-lg-2" layout="vertical">
+
+        </material-sidenav>
+
+        <main class="color-bg-1 col-xs-12 col-lg-8" style="padding:0px !important">
+            <material-content ui-view="" layout="vertical" layout-padding style="padding:0px !important">
+                <div layout="horizontal" flex class="" layout-align="space-around" style="" style="padding:0px !important">
+                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
+                        <div layout="vertical" flex >
+                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-green-light">
+                                <img src="images/icons/shopping.png" class="img-responsive m-20"/>
+                            </div>
+                            <div layout="vertical" layout-align="center start" class="bg-green-dark color-5 s-130">
+                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
+                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
+                                        <label>Despesas</label>
+                                    </div>
+                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
+                        <div layout="vertical" flex >
+                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-blue-light">
+                                <img src="images/icons/accomodation.png" class="img-responsive m-20"/>
+                            </div>
+                            <div layout="vertical" layout-align="center start" class="color-1 s-130 bg-blue-dark">
+                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
+                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
+                                        <label>Acomodação</label>
+                                    </div>
+                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
+                        <div layout="vertical" flex >
+                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-yellow-light">
+                                <img src="images/icons/graphics.png" class="img-responsive m-20"/>
+                            </div>
+                            <div layout="vertical" layout-align="center start" class="color-5 s-130 bg-yellow-dark">
+                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
+                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
+                                        <label>Avaliações</label>
+                                    </div>
+                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div layout="horizontal" flex class="" layout-align="space-around" style="" style="padding:0px !important">
+                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
+                        <div layout="vertical" flex >
+                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-grey-light">
+                                <img src="images/icons/form.png" class="img-responsive m-20"/>
+                            </div>
+                            <div layout="vertical" layout-align="center start" class="bg-grey-dark color-1 s-130">
+                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
+                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
+                                        <label>Dados Gerais</label>
+                                    </div>
+                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
+                        <div layout="vertical" flex >
+                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-purple-light">
+                                <img src="images/icons/star.png" class="img-responsive m-20"/>
+                            </div>
+                            <div layout="vertical" layout-align="center start" class="color-1 s-130 bg-purple-dark">
+                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
+                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
+                                        <label>Habilidades</label>
+                                    </div>
+                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
+                        <div layout="vertical" flex >
+                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-red-light">
+                                <img src="images/icons/contract.png" class="img-responsive m-20"/>
+                            </div>
+                            <div layout="vertical" layout-align="center start" class="color-1 s-130 bg-red-dark">
+                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
+                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
+                                        <label>Contratos</label>
+                                    </div>
+                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div layout="horizontal" flex class="" layout-align="space-around" style="" style="padding:0px !important">
+                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
+                        <div layout="vertical" flex >
+                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-green-light">
+                                <img src="images/icons/shopping.png" class="img-responsive m-20"/>
+                            </div>
+                            <div layout="vertical" layout-align="center start" class="bg-green-dark color-5 s-130">
+                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
+                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
+                                        <label>Despesas</label>
+                                    </div>
+                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
+                        <div layout="vertical" flex >
+                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-blue-light">
+                                <img src="images/icons/accomodation.png" class="img-responsive m-20"/>
+                            </div>
+                            <div layout="vertical" layout-align="center start" class="color-1 s-130 bg-blue-dark">
+                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
+                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
+                                        <label>Acomodação</label>
+                                    </div>
+                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
+                        <div layout="vertical" flex >
+                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-yellow-light">
+                                <img src="images/icons/graphics.png" class="img-responsive m-20"/>
+                            </div>
+                            <div layout="vertical" layout-align="center start" class="color-5 s-130 bg-yellow-dark">
+                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
+                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
+                                        <label>Avaliações</label>
+                                    </div>
+                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </material-content>
+        </main>
+
+        <material-sidenav ng-include src="'views/menu.html'" class="color-bg-1 material-whiteframe-z3 visible-lg col-lg-2" layout="vertical">
+
+        </material-sidenav>
     </div>
 
 
+    <footer id="footer" ng-include src="'views/footer.html'" class="color-bg-5 material-whiteframe-z3 hidden-lg" layout="horizontal">
 
-    <div id="loadingContent" ng-include src="'views/loading-content.html'">
+    </footer>
+
+
+    <div class="overlay-transparent" style="display:none;">
 
     </div>
 
 
-</core-scaffold>
+    <div id="loadingApp" ng-include src="'views/loading-app.html'" layout="vertical" class="fill" layout-align="center center" >
 
-<div class="overlay-transparent" style="display:none;"></div>
+    </div>
 
+    <div id="login" ng-include src="'views/login.html'" ng-if="login" ng-controller="LoginController" layout="vertical" class="fill bg-1" layout-align="center center" style="display:none;">
 
+    </div>
 
-<div id="login" ng-include src="'views/login.html'" ng-if="login" ng-controller="LoginController" style="display:none;"></div>
--->
-<div id="content" ui-view="">
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/hammerjs/hammer.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
-</div>
-<div id="loadingApp" ng-include src="'views/loading-app.html'" flex layout="horizontal" layout-align="center center"></div>
-<div id="login" ng-include src="'views/login.html'" flex layout="horizontal" layout-align="center center" ng-if="login" ng-controller="LoginController" style="display:none;background-image: url(images/background.gif)"></div>
-
-<!-- build:js scripts/vendor.js -->
-<!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-translate/angular-translate.js"></script>
-<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/hammerjs/hammer.js"></script>
-<script src="bower_components/angular-material/angular-material.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
-
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
-</script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
+    </script>
 
 
-<!--[if lt IE 9]>
-<script src="bower_components/es5-shim/es5-shim.js"></script>
-<script src="bower_components/json3/lib/json3.min.js"></script>
-<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
 
 
 
-<!-- build:js({.tmp,app}) scripts/scripts.js -->
-<script src="scripts/app.js"></script>
-<script src="scripts/router.js"></script>
-<script src="scripts/config.js"></script>
-<script src="scripts/util.js"></script>
-<script src="scripts/controllers/header.js"></script>
-<script src="scripts/controllers/login.js"></script>
-<script src="scripts/controllers/signup.js"></script>
-<script src="scripts/controllers/logout.js"></script>
-<script src="scripts/controllers/person.js"></script>
-<script src="scripts/controllers/company.js"></script>
-<script src="scripts/controllers/user.js"></script>
-<script src="scripts/controllers/expense.js"></script>
-<script src="scripts/controllers/home.js"></script>
-<script src="scripts/services/login.js"></script>
-<script src="scripts/services/signup.js"></script>
-<script src="scripts/services/person.js"></script>
-<script src="scripts/services/company.js"></script>
-<script src="scripts/services/user.js"></script>
-<script src="scripts/services/attribute.js"></script>
-<script src="scripts/services/expense.js"></script>
-<script src="scripts/directives/datepicker.js"></script>
-<script src="scripts/directives/avatar.js"></script>
-<script src="scripts/directives/attribute.js"></script>
-<!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/router.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/util.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/signup.js"></script>
+    <script src="scripts/controllers/logout.js"></script>
+    <script src="scripts/controllers/person.js"></script>
+    <script src="scripts/controllers/company.js"></script>
+    <script src="scripts/controllers/user.js"></script>
+    <script src="scripts/controllers/expense.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/services/login.js"></script>
+    <script src="scripts/services/signup.js"></script>
+    <script src="scripts/services/person.js"></script>
+    <script src="scripts/services/company.js"></script>
+    <script src="scripts/services/user.js"></script>
+    <script src="scripts/services/attribute.js"></script>
+    <script src="scripts/services/expense.js"></script>
+    <script src="scripts/directives/datepicker.js"></script>
+    <script src="scripts/directives/avatar.js"></script>
+    <script src="scripts/directives/attribute.js"></script>
+    <!-- endbuild -->
 
 
 

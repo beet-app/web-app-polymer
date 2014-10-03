@@ -13,7 +13,8 @@
     "angular-sanitize": "latest",
     "angular-route": "latest",
     "angular-ui-router": "latest",
-    "angular-material": "latest"
+    "angular-material": "latest",
+    "bootstrap": "~3.2.0"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",

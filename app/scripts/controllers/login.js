@@ -3,26 +3,19 @@ BeetApp
     .controller("LoginController", ["$scope","$rootScope", "$state", "Common","Login", function ($scope,$rootScope, $state, Common, Login) {
         $scope.formData = {};
 
-        Login.get()
-            .success(function (data) {
-                loadData(data);
-            })
-            .error(function (error) {
-                $rootScope.loadingApp = false;
-                $rootScope.login = true;
 
-                setTimeout(function(){
-                    $("#loadingApp").hide();
-                    $("#login").fadeIn("slow");
-                },2000);
-
-            });
 
         $scope.checkLogin = function() {
             if ($scope.formData.email != undefined) {
                 Login.post($scope.formData)
                     .success(function(data) {
-                        loadData(data);
+                        $("#login").fadeOut("fast");
+                        $("#loadingApp").fadeIn("slow");
+                            setTimeout(function(){
+
+                                loadData(data);
+                            },3000);
+
                     })
                     .error(function(data) {
                         Common.showToastMessage("Dados Inválidos !");
@@ -43,7 +36,14 @@ BeetApp
                     $rootScope.session.menu = companies[0].menus[0];
                     $rootScope.loadingApp = false;
                     $rootScope.login = false;
-                    $location.path('home');
+
+                    setTimeout(function(){
+                        $("#loadingApp").hide();
+                        $("#container").fadeIn("slow");
+                        $("#header").fadeIn("slow");
+                        $("#footer").fadeIn("slow");
+                    },2000);
+                    $state.transitionTo('home');
                 })
                 .error(function (error) {
 

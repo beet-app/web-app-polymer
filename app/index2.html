@@ -22,40 +22,68 @@
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) styles/application.css -->
-    <link rel="stylesheet" href="styles/polymer.css" media="all" type="text/css" >
+    <link rel="stylesheet" href="styles/polymer2.css" media="all" type="text/css" >
     <link rel="stylesheet" href="styles/style.css" media="all" type="text/css" >
     <link rel="stylesheet" href="styles/colors.css" media="all" type="text/css" >
     <link rel="stylesheet" href="styles/components/datepicker/datepicker2.css">
     <!-- endbuild -->
 </head>
 
-<body ng-app="BeetApp" layout="vertical" flex>
+<body ng-app="BeetApp"  layout="vertical" layout-fill >
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
 
-<header ng-include src="'views/header.html'" id="header" class="c-4" flex="10" ng-controller="HeaderController" style="display:none;">
+<header id="header" layout="horizontal" class="c-4" layout-padding ng-controller="HeaderController" style="display:none;">
+    <div class="col-xs-4"  layout="horizontal" layout-align="start center">
+        <img src="images/header-logo.png"  style="width:100%;height:100%" block-sm hide-md hide-lg layout-padding/>
+        <img src="images/header-logo.png" style="width:70%;height:70%" hide-sm block-md hide-lg layout-padding/>
+        <img src="images/header-logo.png" style="width:50%;height:50%" hide-sm hide-md block-lg layout-padding/>
+    </div>
+    <div class="col-xs-4"layout="horizontal" layout-align="center center" class="s-150">
+        Principal
+    </div>
+    <div class="col-xs-4" layout="horizontal" layout-align="end center">
 
+        <material-button class="material-button-fab color-bg-4" tabindex="-1" aria-label="">
+            <button class="material-button-inner">
+                <img  src="http://www.iso.org/iso/align_just_icon_48.png" style="width:24px;height:24px" />
+            </button>
+            <div class="material-ripple-container" ></div>
+        </material-button>
+    </div>
 </header>
 
 
-<div id="container"  style="display:none;" display="horizontal" flex="80">
+<div layout="horizontal" flex id="container"  style="display:none;">
 
-    <material-sidenav ng-include src="'views/menu.html'" class="color-bg-1 material-whiteframe-z3" flex="40">
+    <material-sidenav hide-sm show-md show-lg flex-md="20" flex-lg="15" class="color-bg-1 material-whiteframe-z3" layout="vertical">
+        <div ng-repeat="menu in session.menus" ng-click="changeMenu(menu)" class="color-bg-1 m-t-b-10 s-120 pointer" layout="horizontal" layout-padding>
+            <img layout-align="start center" layout="horizontal" flex="20" src="images/icons/{{menu.icon_class}}.png" style="width:15%;height:15%"/>
+            <span layout-align="start center" layout="horizontal" flex>{{menu.description}}</span>
+        </div>
+        <div class="color-bg-1 m-v-10 pointer" layout="horizontal" layout-padding>
+            <img layout-align="start center" layout="horizontal" flex="20" src="images/icons/border-none.png" style="width:15%;height:15%"/>
+            <span layout-align="start center" layout="horizontal" flex>
+                <label hide-md hide-sm show-lg>large</label>
+                <label hide-lg hide-sm show-md>medium</label>
+                <label hide-md hide-lg show-sm>small</label>
+            </span>
+        </div>
 
     </material-sidenav>
 
 
 
-    <main ui-view="" class="color-bg-2" display="vertical" flex>
-        asdas
+    <main flex layout='vertical' ui-view="" class="color-bg-1">
+
     </main>
 </div>
 
 
-<footer id="footer" hide-md hide-lg show-sm class="color-bg-3 material-whiteframe-z3"   layout="horizontal">
+<footer id="footer" hide-md hide-lg show-sm class="color-bg-3"   layout="horizontal">
     <div flex layout-align="center center" layout="horizontal">
         <material-button class="material-button-fab color-bg-1 m-10" tabindex="-1" aria-label="" ng-repeat="menu in session.menus" ng-click="changeMenu(menu)">
             <button class="material-button-inner" class="color-bg-1">
@@ -88,8 +116,8 @@
 
 
 
-<div id="loadingApp" ng-include src="'views/loading-app.html'" layout="vertical" class="fill" layout-align="center center" ></div>
-<div id="login" ng-include src="'views/login.html'" ng-if="login" ng-controller="LoginController" layout="vertical" class="fill bg-1" layout-align="center center" style="display:none;"></div>
+<div id="loadingApp" ng-include src="'views/loading-app.html'" flex layout="horizontal" layout-align="center center"></div>
+<div id="login" ng-include src="'views/login.html'" ng-if="login" ng-controller="LoginController" class="colsxs-12" style="display:none;"></div>
 
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->

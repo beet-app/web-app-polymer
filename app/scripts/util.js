@@ -1,6 +1,6 @@
 ﻿"use strict";
 BeetApp
-    .factory("Common", ["$rootScope",function ($rootScope) {
+    .factory("Common", ["$rootScope", "$materialToast",function ($rootScope, $materialToast) {
         function formatElementName(strName){
             strName = strName.replace("dialog-","");
             var arr = strName.split("-");
@@ -82,7 +82,7 @@ BeetApp
                 setPage(id, value);
             },
             getApiUrl : function () {
-                return "http://127.0.0.1:1313/api";
+                return "http://192.168.16.58:1313/api";
             },
             isValidImage: function (src) {
                 return $http.get(src);
@@ -175,8 +175,11 @@ BeetApp
 
             },
             showToastMessage: function(text) {
-                var toast = document.querySelector('#beet-toast-message');
-                toast.show();
+                $materialToast({
+                    template: "<material-toast class='color-bg-4'>"+text+"</material-toast>",
+                    duration: 3000,
+                    position:"bottom right"
+                });
             }
 
         };

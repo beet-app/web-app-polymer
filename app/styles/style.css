@@ -5,7 +5,7 @@ body {
 }
 
 body {
-    font-family: lato !important;
+
 }
 
 .pointer {
@@ -15,7 +15,12 @@ body {
 .m-20 {
     margin: 20px;
 }
-
+.m-10 {
+    margin: 10px;
+}
+.m-t-0 {
+    margin-top: 0;
+}
 .m-t-10 {
     margin-top: 10px;
 }
@@ -71,72 +76,69 @@ body {
 .size-30 {
     font-size: 30px;
 }
-
-
-#loadingApp {
-    position: absolute;
-    top: 30%;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    text-align: center;
+.s-180 {
+    font-size: 1.8em;
 }
-#login {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.s-150 {
+    font-size: 1.5em;
+}
+.s-130 {
+    font-size: 1.3em;
+}
+.s-120 {
+    font-size: 1.2em;
+}
+.s-110 {
+     font-size: 1.1em;
+ }
+.s-100 {
+    font-size: 1em;
+}
+.w-80 {
+    width:80%;
+}
+.w-30 {
+    width:30%;
+}
+.m-t-b-10{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.m-v-15{
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.m-v-10{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.m-v-5{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.fill-vertical {
+    min-height: 100%;
     height: 100%;
 }
-#login #login-box {
-    position: absolute;
-    top: 25%;
-    left: 30%;
-    width: 40%;
-    height: 50%;
-}
-#login #login-box .login-field-user{
-    top:5%;
-    left:10%;
-    width: 80%;
-    font-size: 150%;
-}
-#login #login-box .login-field-password{
-    font-size: 150%;
-    top:35%;
-    left:10%;
-    width: 80%;
-}
-#login #login-box .submit{
-    position:absolute;
-    right:10%;
-    bottom:10%;
-    width: 30%;
-    background-color: #781649;
-    color:#FFF;
-}
-#container {
-    position: absolute;
-    top: 0;
-    left: 0;
+.fill-horizontal {
+    min-width: 100%;
     width: 100%;
+}
+.fill{
+    min-height: 100%;
     height: 100%;
-}
-
-#header {
+    min-width: 100%;
     width: 100%;
 }
-
-#loadingContent {
-    width: 100%;
-    height: 100%;
-    text-align: center;
+.pointer{
+    cursor: pointer;
 }
-
-#loadingContent img {
-    margin-top: 15%;
+.border{
+    border:1px #000 solid;
 }
-
+.list-none{
+    list-style: none;
+}
 #content {
     position: absolute;
     top: 0;
@@ -144,403 +146,11 @@ body {
     width: 100%;
     height: 100%;
 }
-
-#content #content-title {
-    float: left;
-    width: 95%;
-    height: 9%;
-    padding: 1%;
-    font-size: 20px;
-    vertical-align: middle;
-    position: relative;
-    border-radius: 3px;
-    margin-left: 0.5%;
+.bg-1{
+    background-image: url("../images/background.gif");
 }
-#content #content-title img{
-    height: 99%;
-}
-#content #content-box {
-    width: 97.5%;
-    height: 90%;
-    overflow-y: auto;
-}
-#content #full-message {
-    margin-left: 0.5%;
-    width: 99.5%;
-    margin-top: 10%;
-    height: 70%;
-    font-size: 28px;
-    text-align: center;
-    overflow-y: hidden;
+.align-middle {
     display: inline-block;
     vertical-align: middle;
-}
-
-.box {
-    height: 80%;
-    width: 99%;
-    margin-left: 0.5%;
-    margin-top: 10px;
-    border: 1px solid #A7CA84;
-    border-radius: 3px;
-    position:relative;
-}
-
-.box .box-header {
-    height: 40px;
-}
-
-.box .box-middle {
-    height: 160px;
-    font-weiaght: bold;
-}
-
-.box .box-middle ul {
-    list-style: none;
-}
-
-.box .box-middle ul li {
-    margin-top: 10px;
-}
-
-.box-50 {
-    position:relative;
-    height: 200px;
-    width: 49%;
-    margin-left: 0.5%;
-    margin-top: 10px;
-    border: 1px solid #A7CA84;
-    border-radius: 3px;
-}
-
-.box-50 .box-header {
-    height: 40px;
-}
-
-.box-50 .box-middle {
-    height: 160px;
-    font-weiaght: bold;
-}
-
-.box-50 .box-middle ul {
-    list-style: none;
-}
-
-.box-50 .box-middle ul li {
-    margin-top: 10px;
-}
-
-.loading-exam {
-    text-align: center;
-    float: left;
-    height: 100%;
-    width: 100%;
-}
-
-.loading-exam #loading-exam-progress {
-    margin-top: 20%;
-}
-
-.item-container{
-    top:0;
-    left:0;
-    height: 100%;
-    width: 100%;
-    position:absolute;
-    text-align: center;
-}
-.item-container .item-header{
-    width: 98%;
-    height:3%;
-    padding:1%;
-    top:0;
-    left:0;
-    position:absolute;
-}
-.item-container .item-header .exam-actual-item{
-    width: 70%;
-    top:0;
-    left:1%;
-    position:absolute;
-    margin-top:1%;
-    text-align: left;
-}
-.item-container .item-header .exam-title{
-    width: 14%;
-    top:0;
-    left:71%;
-    text-align: center;
-    position:absolute;
-    margin-top:1%;
-}
-.item-container .item-header .exam-time{
-    width: 14%;
-    top:0;
-    right:1%;
-    position:absolute;
-    margin-top:1%;
-}
-.item-container .item-middle{
-    font-size: 24px;
-    height: 75%;
-    width: 80%;
-    margin-top: 3%;
-    top:5%;
-    left:10%;
-    position:absolute;
-}
-.item-container .item-middle .item-body{
-    float:left;
-    color: #000;
-    width: 94%;
-    overflow-y: auto;
-    min-height:10%;
-    max-height:50%;
-    text-align: left;
-    padding:3%;
-    font-size:24px;
-    border-bottom: 1px dotted #375B5F;
-}
-.item-container .item-middle .item-alternatives{
-    float:left;
-    width: 100%;
-    padding-top:1%;
-    padding-left:2%;
-    padding-right:2%;
-    text-align: left;
-}
-.item-container .item-middle .item-alternatives .alternative{
-    text-align: left;
-    float:left;
-    color: #000;
-    width: 96%;
-    padding-top:2%;
-    font-size:20px;
-    display: inline-block;
-    white-space: nowrap;
-}
-.item-container .item-middle .item-alternatives .alternative .option {
-    position:relative;
-    display: inline-block;
-    width:16px;
-    height:16px;
-    vertical-align:middle;
-}
-.item-container .item-middle .item-alternatives .alternative .option-label {
-    margin-left: 10px;
-    position:relative;
-    display: inline-block;
-    white-space: normal;
-    vertical-align:middle;
-}
-.item-container .item-middle .item-text{
-    float:left;
-    width: 100%;
-    padding-top:1%;
-    padding-left:2%;
-    padding-right:2%;
-    text-align: left;
-}
-.item-container .item-footer{
-    position:absolute;
-    height: 15%;
-    left:0;
-    width: 100%;
-    bottom:0;
-}
-.item-container .item-footer .item-footer-left{
-    position:absolute;
-    height: 100%;
-    left:0;
-    width: 20%;
-    bottom:0;
-}
-.item-container .item-footer .item-footer-left .answered-itens{
-    bottom:45%;
-    left:15%;
-    width:12em;
-    position:absolute;
-    height:1.8em;
-    padding-top:0.5em;
-}
-.item-container .item-footer .item-pagination-control-left{
-    position:absolute;
-    left:20%;
-    overflow: hidden;
-    height: 100px;
-    width: 5%;
-    text-align: center;
-}
-.item-container .item-footer .item-pagination-control-left .item-index{
-    margin-top:30%;
-    margin-left:10px;
-    margin-right:10px;
-    width:55px;
-    height:55px;
-}
-.item-container .item-footer .item-pagination{
-    position:absolute;
-    left:25%;
-    overflow: hidden;
-    height: 100px;
-    width: 50%;
-    text-align: center;
-}
-.item-container .item-footer .item-pagination .item-index{
-    margin-left:10px;
-    margin-right:10px;
-    margin-top:3%;
-    position:absolute;
-    width:55px;
-    height:55px;
-}
-.item-container .item-footer .item-pagination-control-right{
-    position:absolute;
-    left:75%;
-    overflow: hidden;
-    height: 100px;
-    width: 5%;
-    text-align: center;
-}
-.item-container .item-footer .item-pagination-control-right .item-index{
-    margin-left:10px;
-    margin-right:10px;
-    margin-top:30%;
-    width:55px;
-    height:55px;
-}
-
-.item-container .item-footer .item-footer-right{
-    position:absolute;
-    height: 100%;
-    right:0;
-    width: 20%;
-    bottom:0;
-}
-.item-container .item-footer .item-footer-right .finish-exam{
-    bottom:30%;
-    right:10%;
-    position:absolute;
-}
-
-
-.dialog-box{
-    height:500px;
-    min-height:500px !important;
-    max-height:800px !important;
-    min-width:500px !important;
-    max-width:800px !important;
-
-}
-/* BUTTONS */
-
-.bt-prev-item {
-    position: absolute;
-    top: 40%;
-    left: 2%;
-}
-
-.bt-next-item {
-    position: absolute;
-    top: 40%;
-    right: 2%;
-}
-
-.instructions {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    float: left;
-    height: 100%;
-    width: 100%;
-    margin: 3px;
-}
-
-.instructions-top {
-    height: 10%;
-    width: 100%
-
-color: #fff;
-    background-color: #375B5F;
-}
-
-.instructions-top div {
-    width: 100%;
-    padding-top: 15px;
-    font-size: 30px;
-    text-align: center;
-    color: #fff;
-    background-color: #375B5F;
-}
-
-.instructions-title {
-    height: 5%;
-    background-color: #78AE40;
-    padding: 0px 0px 0px 0px;
-    font-weight: bold;
-    color: #FFF;
-}
-
-.instructions-middle {
-    height: 85%;
-    background-color: #FFFFFF;
-    padding-left: 15px;
-    font-weight: bold;
-    color: #000;
-}
-
-.fullscreen {
-    position: fixed !important;
-    width: 100% !important;
-    height: 100% !important;
-    top: 0 !important;
-    left: 0 !important;
-    z-index: 999 !important;
-}
-
-.overlay-transparent {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    -moz-opacity: 0;
-    /* makes the div transparent, so you have a cool overlay effect */
-    opacity: .0;
-    filter: alpha(opacity=0);
-    z-index: 99;
-}
-
-.opacity {
-    -moz-opacity: 50;
-    /* makes the div transparent, so you have a cool overlay effect */
-    opacity: .50;
-    filter: alpha(opacity=50);
-}
-
-.fab {
-    position: absolute;
-    fill: #fff;
-}
-
-.fab-0 {
-    bottom: 30px;
-    right: 24px;
-}
-
-.fab-1 {
-    top: 210px;
-    right: 24px;
-}
-
-
-
-.top-image {
-    height: 287px;
-    width: 202px;
-}
-
-.avatar {
-    height: 80px;
-    width: 80px;
-    background-color: #375B5F;
+    float: none;
 }
