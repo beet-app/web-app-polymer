@@ -5,15 +5,38 @@ body {
 }
 
 body {
-
+    overflow:hidden;
 }
 
 .pointer {
     cursor: pointer;
 }
+.p-0{
+    padding:0 !important;
+}
+.bold{
+    font-weight: bold;
+}
+.scrollable{
+    overflow-y: auto !important
+}
 
+.p-5{
+    padding:5px !important;
+}
+.p-v-5{
+     padding-top:5px !important;
+     padding-bottom:5px !important;
+ }
+.p-h-20{
+    padding-left:20px !important;
+    padding-right:20px !important;
+}
 .m-20 {
     margin: 20px;
+}
+.m-5 {
+    margin: 5px;
 }
 .m-10 {
     margin: 10px;
@@ -116,6 +139,13 @@ body {
     margin-top:5px;
     margin-bottom:5px;
 }
+.m-h-10{
+    margin-left:10px;
+    margin-right:10px;
+}
+.m-b-10{
+    margin-bottom:10px;
+}
 .fill-vertical {
     min-height: 100%;
     height: 100%;
@@ -153,4 +183,8 @@ body {
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
 }

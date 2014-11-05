@@ -10,8 +10,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="description" content="Gerenciamento de atletas" />
     <meta name="author" content="BeetCorp" />
+    <link rel="apple-touch-icon" href="images/sgp_logo_toolbar.png"/>
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
-    <title>Beet</title>
+    <title>SGP Lite</title>
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato&#038;ver=3.9.1' type='text/css' media='all' />
 
@@ -31,197 +32,48 @@
 <body ng-app="BeetApp" layout="vertical" layout-fill>
 
 
-    <header ng-include src="'views/header.html'" id="header" class="c-4" ng-controller="HeaderController" style="display:none;">
+    <header ng-include src="'views/header.html'" id="header" class="bg-green-light" ng-controller="HeaderController" style="display:none;">
 
     </header>
 
 
     <div id="container"  style="display:none;" layout="horizontal" flex>
 
-        <material-sidenav ng-include src="'views/menu.html'" class="color-bg-1 material-whiteframe-z3 visible-lg col-lg-2" layout="vertical">
+        <material-sidenav ng-include src="'views/menu.html'" class="color-bg-4 visible-lg col-lg-2 material-whiteframe-z3" layout="vertical">
 
         </material-sidenav>
 
-        <main class="color-bg-1 col-xs-12 col-lg-8" style="padding:0px !important">
-            <material-content ui-view="" layout="vertical" layout-padding style="padding:0px !important">
-                <div layout="horizontal" flex class="" layout-align="space-around" style="" style="padding:0px !important">
-                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
-                        <div layout="vertical" flex >
-                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-green-light">
-                                <img src="images/icons/shopping.png" class="img-responsive m-20"/>
+        <main class="color-bg-1 col-xs-12 col-lg-8 p-0 scrollable color-bg-1" style="padding:0 !important;overflow-y: auto !important">
+            <div class="row p-v-5 p-h-20">
+                <div ng-repeat="mainMenu in menutest" class="col-xs-6 col-sm-4" >
+                    <div class="col-xs-12 p-5">
+                        <div class="row bg-{{mainMenu.background_color}}-light text-center" layout="horizontal" layout-align="center center" style="height:160px">
+                            <div class="col-xs-6"  layout="horizontal" layout-align="center center">
+                                <img src="images/icons/{{mainMenu.flat_icon}}.png" class="img-responsive" />
                             </div>
-                            <div layout="vertical" layout-align="center start" class="bg-green-dark color-5 s-130">
-                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
-                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
-                                        <label>Despesas</label>
-                                    </div>
-                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
-                                        <span class="glyphicon glyphicon-play"></span>
-                                    </div>
-                                </div>
-
+                        </div>
+                        <div class="row bg-{{mainMenu.background_color}}-dark color-5 c-{{mainMenu.text_color}}"  layout="horizontal" layout-align="center center">
+                            <div class="col-xs-9" >
+                                <label class="s-130 hidden-xs">{{mainMenu.description}}</label>
+                                <label class="s-100 visible-xs">{{mainMenu.description}}</label>
+                            </div>
+                            <div class="col-xs-3 text-right" >
+                                <span class="glyphicon glyphicon-play"></span>
                             </div>
                         </div>
                     </div>
-                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
-                        <div layout="vertical" flex >
-                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-blue-light">
-                                <img src="images/icons/accomodation.png" class="img-responsive m-20"/>
-                            </div>
-                            <div layout="vertical" layout-align="center start" class="color-1 s-130 bg-blue-dark">
-                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
-                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
-                                        <label>Acomodação</label>
-                                    </div>
-                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
-                                        <span class="glyphicon glyphicon-play"></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
-                        <div layout="vertical" flex >
-                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-yellow-light">
-                                <img src="images/icons/graphics.png" class="img-responsive m-20"/>
-                            </div>
-                            <div layout="vertical" layout-align="center start" class="color-5 s-130 bg-yellow-dark">
-                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
-                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
-                                        <label>Avaliações</label>
-                                    </div>
-                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
-                                        <span class="glyphicon glyphicon-play"></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    <div class="material-ripple-container"></div>
                 </div>
-
-                <div layout="horizontal" flex class="" layout-align="space-around" style="" style="padding:0px !important">
-                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
-                        <div layout="vertical" flex >
-                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-grey-light">
-                                <img src="images/icons/form.png" class="img-responsive m-20"/>
-                            </div>
-                            <div layout="vertical" layout-align="center start" class="bg-grey-dark color-1 s-130">
-                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
-                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
-                                        <label>Dados Gerais</label>
-                                    </div>
-                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
-                                        <span class="glyphicon glyphicon-play"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
-                        <div layout="vertical" flex >
-                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-purple-light">
-                                <img src="images/icons/star.png" class="img-responsive m-20"/>
-                            </div>
-                            <div layout="vertical" layout-align="center start" class="color-1 s-130 bg-purple-dark">
-                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
-                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
-                                        <label>Habilidades</label>
-                                    </div>
-                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
-                                        <span class="glyphicon glyphicon-play"></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
-                        <div layout="vertical" flex >
-                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-red-light">
-                                <img src="images/icons/contract.png" class="img-responsive m-20"/>
-                            </div>
-                            <div layout="vertical" layout-align="center start" class="color-1 s-130 bg-red-dark">
-                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
-                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
-                                        <label>Contratos</label>
-                                    </div>
-                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
-                                        <span class="glyphicon glyphicon-play"></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div layout="horizontal" flex class="" layout-align="space-around" style="" style="padding:0px !important">
-                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
-                        <div layout="vertical" flex >
-                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-green-light">
-                                <img src="images/icons/shopping.png" class="img-responsive m-20"/>
-                            </div>
-                            <div layout="vertical" layout-align="center start" class="bg-green-dark color-5 s-130">
-                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
-                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
-                                        <label>Despesas</label>
-                                    </div>
-                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
-                                        <span class="glyphicon glyphicon-play"></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
-                        <div layout="vertical" flex >
-                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-blue-light">
-                                <img src="images/icons/accomodation.png" class="img-responsive m-20"/>
-                            </div>
-                            <div layout="vertical" layout-align="center start" class="color-1 s-130 bg-blue-dark">
-                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
-                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
-                                        <label>Acomodação</label>
-                                    </div>
-                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
-                                        <span class="glyphicon glyphicon-play"></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" col-xs-4 color-bg-4 material-whiteframe-z1 m-10" style="padding:0px !important">
-                        <div layout="vertical" flex >
-                            <div layout="vertical" layout-align="center center" style="height:160px" class="bg-yellow-light">
-                                <img src="images/icons/graphics.png" class="img-responsive m-20"/>
-                            </div>
-                            <div layout="vertical" layout-align="center start" class="color-5 s-130 bg-yellow-dark">
-                                <div layout="horizontal" class="col-xs-12 m-t-b-10"  style="padding:0px !important">
-                                    <div class="col-xs-9" layout="horizontal" layout-align="start center">
-                                        <label>Avaliações</label>
-                                    </div>
-                                    <div class="col-xs-3" layout="horizontal" layout-align="end center" >
-                                        <span class="glyphicon glyphicon-play"></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </material-content>
+            </div>
         </main>
 
-        <material-sidenav ng-include src="'views/menu.html'" class="color-bg-1 material-whiteframe-z3 visible-lg col-lg-2" layout="vertical">
+        <material-sidenav ng-include src="'views/menu.html'" class="color-bg-4 material-whiteframe-z3 visible-lg col-lg-2" layout="vertical">
 
         </material-sidenav>
     </div>
 
 
-    <footer id="footer" ng-include src="'views/footer.html'" class="color-bg-5 material-whiteframe-z3 hidden-lg" layout="horizontal">
+    <footer id="footer" ng-include src="'views/footer.html'" class="color-bg-4 material-whiteframe-z3 hidden-lg" layout="horizontal" style="display: none;">
 
     </footer>
 

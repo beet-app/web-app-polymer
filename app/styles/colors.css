@@ -13,7 +13,8 @@
     background-color:#78AE40 !important;
 }
 .color-bg-4{
-    background-color:#781649 !important;
+    --background-color:#781649 !important;
+    background-color:#375B5F !important;
 }
 .color-bg-5{
     background-color:#000000 !important;
@@ -32,6 +33,13 @@
     color:#375B5F;
 }
 .color-5{
+    color:#000000;
+}
+
+.c-white{
+    color:#FFFFFF;
+}
+.c-black{
     color:#000000;
 }
 
